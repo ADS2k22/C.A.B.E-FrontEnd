@@ -55,6 +55,7 @@ export const SidebarComponent = ({ children }) => {
                   </li>
                   <li className='li-sidebar'>
                     <Button onClick={() => navigate("/roadmaps")} style={{ width: '100%' }} className="p-ripple d-flex align-items-center cursor-pointer p-3 rounded text-secondary hover-bg-dark transition-duration-150 transition-colors w-100 style-button-sidebar">
+
                       <i className="pi pi-map me-2 icon-sidebar"></i>
                       <span className="fw-medium icon-sidebar">Roadmaps</span>
                       <Ripple />
