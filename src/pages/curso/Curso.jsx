@@ -34,7 +34,7 @@ export default function Curso(){
 
     const findCursos = async () => {
         try {
-            const data = await api.get('/api/curso',  {
+            const data = await api.get(`/api/curso?idUser=${localStorage.getItem('idAdmin')}`,  {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -47,7 +47,7 @@ export default function Curso(){
 
     const findTecnologiaCursos = async () => {
         try {
-            const data = await api.get('/api/curso/filtragem?categoria=Tecnologia', {
+            const data = await api.get(`/api/curso/filtragem?categoria=Tecnologia&idUser=${localStorage.getItem('idAdmin')}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -60,7 +60,7 @@ export default function Curso(){
 
     const findSaudeCursos = async () => {
         try {
-            const data = await api.get('/api/curso/filtragem?categoria=Saúde', {
+            const data = await api.get(`/api/curso/filtragem?categoria=Saúde&idUser=${localStorage.getItem('idAdmin')}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -73,7 +73,7 @@ export default function Curso(){
 
     const findEngenhariaCursos = async () => {
         try {
-            const data = await api.get('/api/curso/filtragem?categoria=Engenharia', {
+            const data = await api.get(`/api/curso/filtragem?categoria=Engenharia&idUser=${localStorage.getItem('idAdmin')}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
@@ -86,7 +86,7 @@ export default function Curso(){
 
     const findFilteredCursos = async () => {
         try {
-            const data = await api.get(`/api/curso/filtragem?nome=${nome}`, {
+            const data = await api.get(`/api/curso/filtragem?nome=${nome}&idUser=${localStorage.getItem('idAdmin')}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
