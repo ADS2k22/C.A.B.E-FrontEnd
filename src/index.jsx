@@ -4,6 +4,7 @@ import 'primeicons/primeicons.css';
 import './lara-dark-blue/theme.css';
 import AllRoutes from './routes/all_routes';
 import { AuthProvider } from './context/AuthContext';
+import '../src/assets/css/style.css';
 
 import { BrowserRouter } from 'react-router-dom';
 
