@@ -1,16 +1,18 @@
 import { Card } from "primereact/card";
 import React, { useRef } from "react";
-import Logo from "../../assets/ADS2K22.png";
+import Logo from "../../assets/logo_CABE.png";
 import { Toast } from "primereact/toast";
 import { Image } from "primereact/image";
 import { Fieldset } from 'primereact/fieldset';
 import { Button } from 'primereact/button';
 import { SidebarComponent } from "../../components/Sidebar";
 import AccessDenied from "../access_denied/AccessDenied";
+import { useNavigate } from "react-router-dom";
 import '../../assets/css/Assignature.css';
 
 export default function Assignature() {
   const toast = useRef(null);
+  const navigate = useNavigate();
 
   function tela() {
     return (
@@ -32,7 +34,7 @@ export default function Assignature() {
                       <p className="p-m-0">R$ 49,99/mês</p>
                     </div>
                     <div>
-                      <Button label="Assine agora" className="p-button-rounded p-button-primary" />
+                      <Button onClick={() => navigate("/payments")} label="Assine agora" className="p-button-rounded p-button-primary" />
                     </div>
                   </div>
                 </Fieldset>
@@ -45,7 +47,7 @@ export default function Assignature() {
                       <p className="p-m-0">R$ 29,99/mês <span className="promo-label">Promoção!</span></p>
                     </div>
                     <div>
-                      <Button label="Assine agora" className="p-button-rounded p-button-primary" />
+                      <Button onClick={() => navigate("/payments")}  label="Assine agora" className="p-button-rounded p-button-primary" />
                     </div>
                   </div>
                 </Fieldset>
