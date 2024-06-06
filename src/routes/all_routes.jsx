@@ -7,6 +7,8 @@ import Curso from "../pages/curso/Curso";
 import Roadmaps from "../pages/roadmaps/Roadmaps";
 import Payments from "../pages/payments/Payments";
 import Certificate from "../pages/certificate/Certificate";
+import SelectedCourse from "../pages/curso/SelectedCourse";
+import { RoadmapModule } from "../pages/roadmaps/Roadmap-module";
 import Create from "../pages/courses/create/Create";
 import Read from "../pages/courses/read/Read";
 import Update from "../pages/courses/update/Update";
@@ -21,9 +23,11 @@ export default function AllRoutes(){
             <Route path="/home" element={<Home />} />
             <Route path="/assignature" element={<Assignature/>} />
             <Route path="/curso" element={<Curso />} />
-            <Route path="/roadmaps" element={<Roadmaps />} />
+            <Route path="/roadmaps" element={<Roadmaps /> }/>
+            <Route path="/roadmaps/:nome" element={<RoadmapModule /> }/>
             <Route path="/payments" element={<Payments/>} />
             <Route path="/certificate" element={<Certificate/>} />
+            <Route path="/curso/:id" element={<SelectedCourse />} />
             <Route path="/create" element={<Create />} />
             <Route path="/read" element={<Read />} />
             <Route path="/update" element={<Update />} />
