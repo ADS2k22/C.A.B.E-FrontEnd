@@ -37,6 +37,14 @@
 
 .assignature-card {
   width: 100%;
+  transition: all 500ms ease-in-out;
+}
+
+.assignature-card:hover {
+  margin-top: -15px;
+  cursor: pointer;
+  box-shadow: 0px 12px 30px 0px rgb(109 94 94 / 20%);
+  transition: all 800ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .plan-details {

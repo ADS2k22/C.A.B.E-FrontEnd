@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { QuizData } from "../quizData/QuizData";
 import { Button } from "primereact/button";
+import { SidebarComponent } from "../../components/Sidebar";
+import AccessDenied from "../access_denied/AccessDenied";
 
 export default function Questions() {
     const [showResult, setShowResult] = useState(false);
@@ -35,37 +37,41 @@ export default function Questions() {
         setScore(0);
     };
 
-    return (
-        <>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
-                {showResult ? (
-                    <QuestionResult score={score} totalScore={QuizData.length} tryAgain={resetAll} />
-                ) : (
-                    <>
-                        <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }} className="question">
-                            <span id="question-number">{currentQuestion + 1}</span>
-                            <span id="question-text">{QuizData[currentQuestion].question}</span>
-                        </div>
+    function tela() {
+        return (
+            <SidebarComponent>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '20px', alignItems: 'center' }}>
+                    {showResult ? (
+                        <QuestionResult score={score} totalScore={QuizData.length} tryAgain={resetAll} />
+                    ) : (
+                        <>
+                            <div style={{ display: 'flex', gap: '20px', alignItems: 'center' }} className="question">
+                                <span id="question-number">{currentQuestion + 1}</span>
+                                <span id="question-text">{QuizData[currentQuestion].question}</span>
+                            </div>
 
-                        <div>
-                            {QuizData[currentQuestion].options.map((option, i) => (
-                                <Button
-                                style={{ margin: '10px' }}
-                                    key={i}
-                                    className={`option-btn ${clickedOption === i + 1 ? "checked" : null}`}
-                                    onClick={() => checkAnswer(i + 1)}
-                                >
-                                    {option}
-                                </Button>
-                            ))}
-                        </div>
-                        <Button label="Próxima" value="Next" id="next-button" onClick={changeQuestion} />
-                    </>
-                )
-                }
-            </div>
-        </>
-    );
+                            <div>
+                                {QuizData[currentQuestion].options.map((option, i) => (
+                                    <Button
+                                        style={{ margin: '10px' }}
+                                        key={i}
+                                        className={`option-btn ${clickedOption === i + 1 ? "checked" : null}`}
+                                        onClick={() => checkAnswer(i + 1)}
+                                    >
+                                        {option}
+                                    </Button>
+                                ))}
+                            </div>
+                            <Button label="Próxima" value="Next" id="next-button" onClick={changeQuestion} />
+                        </>
+                    )
+                    }
+                </div>
+            </SidebarComponent>
+        );
+    }
+
+    return (localStorage.getItem('authenticated') === 'true') ? tela() : <AccessDenied />
 }
 
 // Definição básica do componente QuestionResult (adicione o conteúdo que você precisa)
