@@ -7,6 +7,7 @@ import Curso from "../pages/curso/Curso";
 import Roadmaps from "../pages/roadmaps/Roadmaps";
 import Payments from "../pages/payments/Payments";
 import Certificate from "../pages/certificate/Certificate";
+import Events from "../pages/events/Events";
 
 export default function AllRoutes(){
     return(
@@ -18,6 +19,7 @@ export default function AllRoutes(){
             <Route path="/roadmaps" element={<Roadmaps />} />
             <Route path="/payments" element={<Payments/>} />
             <Route path="/certificate" element={<Certificate/>} />
+            <Route path="/events" element={<Events />} />
         </Routes>
     )
 }
