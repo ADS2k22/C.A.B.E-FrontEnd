@@ -15,6 +15,7 @@ import Update from "../pages/courses/update/Update";
 import Delete from "../pages/courses/delete/Delete";
 import Questions from "../pages/quiz/Questions";
 import Quiz from "../pages/quiz/Quiz";
+import Events from "../pages/events/Events";
 
 export default function AllRoutes(){
     return(
@@ -34,7 +35,7 @@ export default function AllRoutes(){
             <Route path="/delete" element={<Delete />} />
             <Route path="/questions" element={<Questions />} />
             <Route path="/quiz" element={<Quiz />} />
-
+            <Route path="/events" element={<Events />} />
         </Routes>
     )
 }
