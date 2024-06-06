@@ -8,8 +8,16 @@
 .toogle-sidebar {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
   padding: 10px;
+  justify-content: space-between;
+}
+
+.sidebar-toggle-button {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  top: 10px;
+  right: 10px;
 }
 
 .li-sidebar {
@@ -19,6 +27,32 @@
 .icon-sidebar {
   margin: 5px;
   font-size: larger;
+}
+
+.sidebar-logo {
+  position: fixed;
+  top: 5px;
+  right: 15px;
+  z-index: 9998;
+}
+
+.sidebar-logo img {
+  width: 50px;
+  height: auto;
+}
+
+.sidebar-toggle-image {
+  width: 24px;
+  height: auto;
+  margin-right: 5px; 
+}
+
+.sidebar-logo-image {
+  width: 100px;
+  height: auto; 
+  display: flex;
+  align-self: left;
+  margin-top: 8px;  
 }
 
 ul, li {
