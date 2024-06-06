@@ -63,6 +63,13 @@ export const SidebarComponent = ({ children }) => {
                       <Ripple />
                     </Button>
                   </li>
+                  <li className='li-sidebar'>
+                    <Button className="p-ripple d-flex align-items-center cursor-pointer p-3 rounded text-secondary hover-bg-dark transition-duration-150 transition-colors w-100">
+                      <i className="pi pi-users me-2 icon-sidebar"></i>
+                      <span className="fw-medium icon-sidebar">Usuários</span>
+                      <Ripple />
+                    </Button>
+                  </li>
                 </ul>
               </div>
             </div>
