@@ -1,0 +1,37 @@
+.card-course {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  padding-top: 20px;
+  padding-bottom: 140px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 15px;
+  background-color: #1f2937;
+  width: 350px;
+  height: 370px;
+  gap: 10px;
+
+  img {
+    border-radius: 30px;
+  }
+}
+
+.title {
+  display: flex;
+  align-self: center;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+  font-size: 20px;
+}
+
+.justify-between {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.check-conclusion {
+  display: flex;
+  justify-content: end;
+}
