@@ -7,7 +7,7 @@
 
 .toogle-sidebar {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding: 10px;
   justify-content: space-between;
 }
@@ -31,7 +31,7 @@
 
 .sidebar-logo {
   position: fixed;
-  top: 5px;
+  top: 15px;
   right: 15px;
   z-index: 9998;
 }
