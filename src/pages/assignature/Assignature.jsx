@@ -1,6 +1,6 @@
 import { Card } from "primereact/card";
 import React, { useRef } from "react";
-import Logo from "../../assets/ADS2K22.png";
+import Logo from "../../assets/logo_CABE.png";
 import { Toast } from "primereact/toast";
 import { Image } from "primereact/image";
 import { Fieldset } from 'primereact/fieldset';

@@ -5,6 +5,7 @@ import Home from "../pages/home/Home";
 import Assignature from "../pages/assignature/Assignature"
 import Payments from "../pages/payments/Payments";
 import Roadmaps from "../pages/roadmaps/Roadmaps";
+import Certificate from "../pages/certificate/Certificate";
 
 export default function AllRoutes(){
     return(
@@ -14,6 +15,7 @@ export default function AllRoutes(){
             <Route path="/assignature" element={<Assignature/>} />
             <Route path="/payments" element={<Payments/>} />
             <Route path="/roadmaps" element={<Roadmaps />} />
+            <Route path="/certificate" element={<Certificate/>} />
         </Routes>
     )
 }
