@@ -6,6 +6,7 @@ import { Card } from "primereact/card";
 import { InputText } from "primereact/inputtext";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
+import { CardCourseComponent } from "../../components/CardCourse";
 
 export default function Curso(){
     const [cursos, setCursos] = useState(null)
@@ -102,15 +103,7 @@ export default function Curso(){
         findSaudeCursos();
         findEngenhariaCursos();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-
-    const cursosBody = (e) => {
-        return (
-            <Card>
-                <h2>{e.curso.nome}</h2>
-            </Card>
-        )
-    }
+    }, [])
 
     function tela(){
         return(
@@ -126,29 +119,29 @@ export default function Curso(){
                         <Button rounded icon="pi pi-filter-slash" onClick={() => {setIsFiltered(false); setFilteredCursos(null); setNome("")}} disabled={!isFiltered} />
                     </div>
                     {!isFiltered ? <h2 style={{ alignSelf: 'start'}}>Cursos de Tecnologia</h2> : <h2 style={{ alignSelf: 'start'}}>Cursos com o nome '{nome}'</h2>}
-                    <div hidden={isFiltered} style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '100%' }}>
+                    <div hidden={isFiltered} style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '98%' }}>
                         {cursosTec && isFiltered === false ? cursosTec.map((e) => {
-                            return cursosBody(e);
+                            return CardCourseComponent(e);
                         }) : isFiltered ? (filteredCursos ? filteredCursos.map((e) => {
-                            return cursosBody(e);
+                            return CardCourseComponent(e);
                         }) : <b></b>) : <b></b>}
                     </div>
                     <h2 hidden={isFiltered} style={{ alignSelf: 'start'}}>Cursos de Saúde</h2>
-                    <div hidden={isFiltered} style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '100%' }}>
+                    <div hidden={isFiltered} style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '98%' }}>
                         {cursosSaude && isFiltered === false ? cursosSaude.map((e) => {
-                            return cursosBody(e);
+                            return CardCourseComponent(e);
                         }) : <b></b>}
                     </div>
                     <h2 hidden={isFiltered} style={{ alignSelf: 'start'}}>Cursos de Engenharia</h2>
-                    <div hidden={isFiltered} style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '100%' }}>
+                    <div hidden={isFiltered} style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '98%' }}>
                         {cursosEngenharia && isFiltered === false ? cursosEngenharia.map((e) => {
-                            return cursosBody(e);
+                            return CardCourseComponent(e);
                         }) : <b></b>}
                     </div>
                     <h2 hidden={isFiltered} style={{ alignSelf: 'start'}}>Todos os cursos</h2>
-                    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '100%' }}>
+                    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '98%' }}>
                         {cursos && isFiltered === false ? cursos.map((e) => {
-                            return cursosBody(e);
+                            return CardCourseComponent(e);
                         }) : <b></b>}
                     </div>
                 </div>
