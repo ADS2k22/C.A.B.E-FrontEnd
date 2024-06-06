@@ -11,6 +11,8 @@ import Create from "../pages/courses/create/Create";
 import Read from "../pages/courses/read/Read";
 import Update from "../pages/courses/update/Update";
 import Delete from "../pages/courses/delete/Delete";
+import Questions from "../pages/quiz/Questions";
+import Quiz from "../pages/quiz/Quiz";
 
 export default function AllRoutes(){
     return(
@@ -26,6 +28,9 @@ export default function AllRoutes(){
             <Route path="/read" element={<Read />} />
             <Route path="/update" element={<Update />} />
             <Route path="/delete" element={<Delete />} />
+            <Route path="/questions" element={<Questions />} />
+            <Route path="/quiz" element={<Quiz />} />
+
         </Routes>
     )
 }
