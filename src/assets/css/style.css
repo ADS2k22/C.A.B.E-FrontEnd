@@ -24,6 +24,14 @@ ul, li {
   text-decoration: none;
 }
 
-li.li-sidebar::marker {
-  text-decoration: none !important;
+.style-button-sidebar {
+  color: #ffffff !important;
+  background: transparent !important;
+  border: transparent !important;
+}
+
+.style-button-sidebar:hover {
+  background: #93c5fd !important;
+  color: #030712 !important;
+  border-color: #93c5fd !important;
 }
