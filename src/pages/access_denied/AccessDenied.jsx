@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "primereact/button";
 import { useNavigate } from "react-router-dom";
 import { Image } from "primereact/image";
-import Logo from '../../assets/ADS2K22.png'
+import Logo from '../../assets/logo_CABE.png'
 
 export default function AccessDenied(){
     const navigate = useNavigate();

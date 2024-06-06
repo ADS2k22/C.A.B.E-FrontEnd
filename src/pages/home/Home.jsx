@@ -13,6 +13,7 @@ import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
 import { MultiSelect } from "primereact/multiselect";
 import { Password } from "primereact/password";
+import { SidebarComponent } from "../../components/Sidebar";
 
 export default function Home(){
     const [admins, setAdmins] = useState(null);
@@ -293,28 +294,27 @@ export default function Home(){
 
     function tela(){
         return(
-            <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', alignItems: 'center'}}>
-                <div><Toast ref={toast} /></div>
-                <div><ConfirmDialog /></div>
-                <Button rounded label="Sair" icon="pi pi-sign-out" style={{ alignSelf: 'center', backgroundColor: 'red' }} onClick={() => confirm('Tem certeza de que deseja sair?', logout)} />
-                <h1>Hello World</h1>
-                {dialogEdit()}
-                {dialogEditPassword()}
-                <Card style={{ display: 'flex', width: '96.5%', margin: '20px', height: '75%',  borderRadius: '15px', justifyContent: 'center' }}>
-                    <ScrollPanel style={{ height: '65vh' }} >
-                        <DataTable header={headerAndFooterBody} footer={headerAndFooterBody} value={admins} dataKey="id"
-                            emptyMessage="Nenhum administrador encontrado para as filtragens selecionadas." style={{ width: '100%' }}>
-                            <Column header="Nome" field="nome" />
-                            <Column header="Email" field="username" />
-                            <Column field={atividadeBody} />
-                            <Column field={enableAndDesableBody} />
-                            <Column field={editBody} />
-                            <Column field={editPasswordBody} />
-                            <Column field={deleteBody} />
-                        </DataTable>
-                    </ ScrollPanel >
-                </Card>
-            </div>
+            <SidebarComponent>
+                <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', alignItems: 'center'}}>
+                    <div><Toast ref={toast} /></div>
+                    {dialogEdit()}
+                    {dialogEditPassword()}
+                    <Card style={{ display: 'flex', width: '96.5%', margin: '100px 20px 20px 20px', height: '75%',  borderRadius: '15px', justifyContent: 'center' }}>
+                        <ScrollPanel style={{ height: '65vh' }} >
+                            <DataTable header={headerAndFooterBody} footer={headerAndFooterBody} value={admins} dataKey="id"
+                                emptyMessage="Nenhum administrador encontrado para as filtragens selecionadas." style={{ width: '100%' }}>
+                                <Column header="Nome" field="nome" />
+                                <Column header="Email" field="username" />
+                                <Column field={atividadeBody} />
+                                <Column field={enableAndDesableBody} />
+                                <Column field={editBody} />
+                                <Column field={editPasswordBody} />
+                                <Column field={deleteBody} />
+                            </DataTable>
+                        </ ScrollPanel >
+                    </Card>
+                </div>
+            </SidebarComponent>
         )
     }
     return (localStorage.getItem('authenticated') === 'true') ? tela() : <AccessDenied />
