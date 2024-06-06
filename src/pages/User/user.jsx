@@ -15,7 +15,7 @@ import { MultiSelect } from "primereact/multiselect";
 import { Password } from "primereact/password";
 import { SidebarComponent } from "../../components/Sidebar";
 
-export default function Usuario(){
+export default function User(){
     const [admins, setAdmins] = useState(null);
     const [permissions, setPermissions] = useState(null);
     const [page, setPage] = useState(0);

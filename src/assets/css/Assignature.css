@@ -1,0 +1,72 @@
+/* Assignature.css */
+.assignature-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.assignature-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: 1rem;
+  text-align: center;
+}
+
+.assignature-logo {
+  margin-bottom: 2rem;
+}
+
+.assignature-title {
+  margin-bottom: 1rem;
+}
+
+.assignature-subtitle {
+  margin-bottom: 2rem;
+}
+
+.assignature-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.assignature-card {
+  width: 100%;
+}
+
+.plan-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.assignature-footer {
+  opacity: 0.5;
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.promo {
+  border: 2px solid #007bff;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.promo-label {
+  background-color: #007bff;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 5px;
+  font-size: 0.75rem;
+  margin-left: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .assignature-plans {
+    flex-direction: row;
+  }
+}

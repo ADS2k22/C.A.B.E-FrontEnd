@@ -5,7 +5,7 @@ import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
 import { AuthContext } from '../../context/AuthContext';
 import { Image } from "primereact/image";
-import Logo from '../../assets/ADS2K22.png'
+import Logo from '../../assets/logo_CABE.png'
 
 export default function Login() {
     const [username, setUsername] = useState('');
