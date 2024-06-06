@@ -75,7 +75,7 @@ export default function Home(){
         ]
         return(
             <SidebarComponent>
-                <div style={{display: 'flex'}}>
+                <div className="center-carousel">
                     <div className="marketing-carrousel">
                         <Carousel value={propagandaExamples} numVisible={1} numScroll={1} itemTemplate={CardPropagandaComponent} />
                     </div>
