@@ -138,7 +138,7 @@ const Events = () => {
                                 {events.map((evento) => (
                                     <div key={evento.id} className="p-col-12 p-md-6 p-lg-4">
                                         <Fieldset>
-                                            <div className="p-card">
+                                            <div className="p-carda">
                                                 <img style={{ height: '300px', width: '300px' }} src={evento.imagem} alt={evento.nome} />
                                                 <div className="p-card-body">
                                                     <h5 className="p-card-title">{evento.nome}</h5>
