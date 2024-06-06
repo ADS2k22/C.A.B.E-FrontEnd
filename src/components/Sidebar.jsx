@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { Ripple } from 'primereact/ripple';
-import Assignature from '../pages/assignature/Assignature';
 import { useNavigate } from "react-router-dom";
 
 export const SidebarComponent = ({ children }) => {
