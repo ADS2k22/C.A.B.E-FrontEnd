@@ -169,7 +169,7 @@ const Events = () => {
                                                         <div className="p-col-12 p-md-6">
                                                             <Button
                                                                 label={
-                                                                    evento.concluido ? 'Não concluído' : 'Concluído'
+                                                                    evento.concluido ? 'Não disponível' : 'Disponível'
                                                                 }
                                                                 onClick={() => handleMarcarConcluido(evento.id)}
                                                             />

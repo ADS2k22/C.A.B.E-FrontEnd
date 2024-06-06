@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { Toast } from "primereact/toast";
-import { Paginator } from 'primereact/paginator';
 import { Button } from 'primereact/button';
-import { useNavigate } from "react-router-dom";
 import { SidebarComponent } from "../../components/Sidebar";
 import AccessDenied from "../access_denied/AccessDenied";
 import '../../assets/css/Certificate.css';
+import Certificado from '../../assets/certificado.pdf';
 
 export default function Certificate() {
-    const navigate = useNavigate();
     const [selectedCertificate, setSelectedCertificate] = useState(null);
     const certificates = [
         { name: 'Gestão de P&DI', id: '1' },
@@ -19,9 +16,18 @@ export default function Certificate() {
     ];
 
     const handleDownload = (certificate) => {
-        // Lógica para download do certificado
+        const certificatePath = Certificado;
+    
+        const link = document.createElement('a');
+        link.href = certificatePath;
+        link.setAttribute('download', `${certificate}.pdf`);
+    
+        document.body.appendChild(link);
+    
+        link.click();
+    
+        document.body.removeChild(link);
     };
-
     const handleMouseEnter = (index) => {
         setSelectedCertificate(index);
     };
@@ -42,7 +48,7 @@ export default function Certificate() {
                 <Button
                     icon="pi pi-download"
                     className="p-button-rounded p-button-text"
-                    onClick={() => handleDownload(certificate)}
+                    onClick={() => handleDownload(selectedCertificate.name)}
                 />
             </li>
         );
