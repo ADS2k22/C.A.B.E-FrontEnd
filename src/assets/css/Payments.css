@@ -1,0 +1,41 @@
+/* Payments.css */
+.payment-page {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 400px;
+}
+
+.payment-card {
+    width: 100%;
+    padding: 2rem;
+}
+
+.payment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+}
+
+.field label {
+    margin-bottom: 0.5rem;
+}
+
+.p-button-primary {
+    width: 100%;
+}
