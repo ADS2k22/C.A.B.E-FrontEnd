@@ -4,6 +4,7 @@ import { CardCourseComponent } from "../../components/CardCourse";
 import api from "../../services/api";
 import { SidebarComponent } from "../../components/Sidebar";
 import { useParams } from "react-router-dom";
+import { Card } from "../../components/Card";
 
 export const RoadmapModule = () => {
   const [filteredCursos, setFilteredCursos] = useState(null);
@@ -42,7 +43,7 @@ export const RoadmapModule = () => {
           {filteredCursos && <h2 style={{ alignSelf: 'start' }}>Cursos de '{nome}'</h2>}
           <div style={{ display: 'flex', flexDirection: 'row', gap: '20px', overflowX: 'auto', padding: '20px', width: '98%' }}>
             {filteredCursos ? filteredCursos.map((e) => {
-              return CardCourseComponent(e);
+              return Card(e);
             }) : <b></b>}
           </div>
         </div>
