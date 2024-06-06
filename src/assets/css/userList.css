@@ -1,0 +1,37 @@
+.user-list {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  align-self: end;
+  margin-right: 20px;
+  width: fit-content;
+
+  label {
+    margin-left: 10px;
+    padding-left: 4px;
+    padding-right: 15px;
+  }
+}
+
+.ranking {
+  align-self: center;
+}
+
+.justify-between {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.center > label {
+  align-self: center;
+  font-weight: 500;
+  font-size: 24px;
+  margin: 15px;
+}
