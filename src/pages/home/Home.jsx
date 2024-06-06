@@ -3,7 +3,7 @@ import api from "../../services/api";
 import AccessDenied from "../access_denied/AccessDenied";
 import { SidebarComponent } from "../../components/Sidebar";
 import { UsersRankingComponent } from "../../components/UsersRanking";
-import { CardCourseComponent } from "../../components/CardCourse";
+import { Card } from "../../components/Card";
 import { CardPropagandaComponent } from "../../components/CardPropaganda";
 import courseSample2 from "../../assets/images/courseSample2.png"
 import pratiDonaduzziLogo from "../../assets/images/pratiDonaduzziLogo.png"
@@ -91,7 +91,7 @@ export default function Home(){
                         cursos && categories.map((label) => (
                             <div style={{marginTop: '5%'}}>
                                 <label style={{marginLeft: '5%', marginBottom: '15px', fontSize: '1.4vw', lineHeight: '1.25vw', fontWeight: 500 }}> {label} </label>
-                                <Carousel value={cursos} responsiveOptions={responsiveOptions} numVisible={5} numScroll={5} itemTemplate={CardCourseComponent} />;
+                                <Carousel value={cursos} responsiveOptions={responsiveOptions} numVisible={5} numScroll={5} itemTemplate={Card} />
                             </div>
                         ))
                     }
