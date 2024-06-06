@@ -7,10 +7,12 @@ import { Fieldset } from 'primereact/fieldset';
 import { Button } from 'primereact/button';
 import { SidebarComponent } from "../../components/Sidebar";
 import AccessDenied from "../access_denied/AccessDenied";
+import { useNavigate } from "react-router-dom";
 import '../../assets/css/Assignature.css';
 
 export default function Assignature() {
   const toast = useRef(null);
+  const navigate = useNavigate();
 
   function tela() {
     return (
@@ -32,7 +34,7 @@ export default function Assignature() {
                       <p className="p-m-0">R$ 49,99/mês</p>
                     </div>
                     <div>
-                      <Button label="Assine agora" className="p-button-rounded p-button-primary" />
+                      <Button onClick={() => navigate("/payments")} label="Assine agora" className="p-button-rounded p-button-primary" />
                     </div>
                   </div>
                 </Fieldset>
@@ -45,7 +47,7 @@ export default function Assignature() {
                       <p className="p-m-0">R$ 29,99/mês <span className="promo-label">Promoção!</span></p>
                     </div>
                     <div>
-                      <Button label="Assine agora" className="p-button-rounded p-button-primary" />
+                      <Button onClick={() => navigate("/payments")}  label="Assine agora" className="p-button-rounded p-button-primary" />
                     </div>
                   </div>
                 </Fieldset>
