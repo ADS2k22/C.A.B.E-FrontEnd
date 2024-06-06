@@ -1,16 +1,32 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Sidebar } from 'primereact/sidebar';
 import { Button } from 'primereact/button';
 import { Ripple } from 'primereact/ripple';
 import { useNavigate } from "react-router-dom";
+import { ConfirmDialog, confirmDialog } from "primereact/confirmdialog";
+import { AuthContext } from '../context/AuthContext';
 
 export const SidebarComponent = ({ children }) => {
   const [visible, setVisible] = useState(false);
+
   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext)
+
+  const confirm = (message, method) => {
+    confirmDialog({
+      message: message,
+      header: 'Confirmação',
+      icon: 'pi pi-exclamation-triangle',
+      acceptLabel: 'Sim',
+      rejectLabel: 'Não',
+      accept: method,
+    });
+};
 
   return (
     <>
-      <div className="card d-flex justify-content-center">
+      <div style={{ position: 'fixed', margin: '10px' }} className="card d-flex justify-content-center">
+        <div><ConfirmDialog /></div>
         <Sidebar
           visible={visible}
           onHide={() => setVisible(false)}
@@ -62,6 +78,15 @@ export const SidebarComponent = ({ children }) => {
                     <Button style={{ width: '100%'}} className="p-ripple d-flex align-items-center cursor-pointer p-3 rounded text-secondary hover-bg-dark transition-duration-150 transition-colors w-100 style-button-sidebar">
                       <i className="pi pi-bookmark me-2 icon-sidebar"></i>
                       <span className="fw-medium icon-sidebar">Certificações</span>
+                      <Ripple />
+                    </Button>
+                  </li>
+                  <li className='li-sidebar'>
+                    <Button style={{ width: '100%' }} className="p-ripple d-flex align-items-center cursor-pointer p-3 rounded text-secondary hover-bg-dark transition-duration-150 transition-colors w-100 style-button-sidebar"
+                      onClick={() => confirm('Tem certeza de que deseja sair?', logout)}
+                    >
+                      <i className="pi pi-sign-out me-2 icon-sidebar"></i>
+                      <span className="fw-medium icon-sidebar">Sair</span>
                       <Ripple />
                     </Button>
                   </li>
