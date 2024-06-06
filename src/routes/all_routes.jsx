@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Login from "../pages/login/Login";
 import Home from "../pages/home/Home";
-import User from "../pages/user/users";
+import User from "../pages/user/user";
 import Assignature from "../pages/assignature/Assignature"
 import Curso from "../pages/curso/Curso";
 import Roadmaps from "../pages/roadmaps/Roadmaps";

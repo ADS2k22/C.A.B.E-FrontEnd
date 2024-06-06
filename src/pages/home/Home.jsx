@@ -1,4 +1,5 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
+import api from "../../services/api";
 import AccessDenied from "../access_denied/AccessDenied";
 import { SidebarComponent } from "../../components/Sidebar";
 import { UsersRankingComponent } from "../../components/UsersRanking";
@@ -9,76 +10,29 @@ import pratiDonaduzziLogo from "../../assets/images/pratiDonaduzziLogo.png"
 import insideLogo from "../../assets/images/insideLogo.png"
 import { Carousel } from 'primereact/carousel';
 import '../../assets/css/home.css';
+import { FormContact } from "../../components/FormContact";
         
 export default function Home(){
+    const [cursos, setCursos] = useState(null)
+
+    const findCursos = async () => {
+        try {
+            const data = await api.get(`/api/curso?idUser=${localStorage.getItem('idAdmin')}`,  {
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
+            setCursos(data.data.slice(0, 15));
+        } catch (err) {
+     
+        }
+    }
+
+    useEffect(() => {
+        findCursos();
+    }, [])
 
     function tela(){
-        const examples =[
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: false
-            },
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: false
-            },
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: false
-            },
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: false
-            },
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: false
-            },
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: true
-            },
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: false
-            },
-            {
-                curso_nome: 'Análise e Desenvolvimento de Sistemas',
-                image: courseSample2,
-                carga_horaria: '50',
-                categoria_nome: 'ADS',
-                feedback: 5,
-                concluido: false
-            }
-        ]
         const propagandaExamples = [
             {
                 image: pratiDonaduzziLogo
@@ -123,7 +77,7 @@ export default function Home(){
             <SidebarComponent>
                 <div style={{display: 'flex'}}>
                     <div className="marketing-carrousel">
-                        <Carousel centerMode value={propagandaExamples} numVisible={1} numScroll={1} itemTemplate={CardPropagandaComponent} />
+                        <Carousel value={propagandaExamples} numVisible={1} numScroll={1} itemTemplate={CardPropagandaComponent} />
                     </div>
                 </div>
                 <div style={{ display: 'flex', flexDirection: 'column', height: '100%', width: '100%', gap: '25px'}}>
@@ -134,17 +88,15 @@ export default function Home(){
                         </div>
                     </div>
                     {
-                        categories.map((label) => (
+                        cursos && categories.map((label) => (
                             <div style={{marginTop: '5%'}}>
                                 <label style={{marginLeft: '5%', marginBottom: '15px', fontSize: '1.4vw', lineHeight: '1.25vw', fontWeight: 500 }}> {label} </label>
-                                <Carousel centerMode value={examples} responsiveOptions={responsiveOptions} numVisible={5} numScroll={5} itemTemplate={CardCourseComponent} />
+                                <Carousel value={cursos} responsiveOptions={responsiveOptions} numVisible={5} numScroll={5} itemTemplate={CardCourseComponent} />;
                             </div>
                         ))
                     }
                 </div>
-                <footer>
-                    Entre em contato conosco(Email ou Whatsapp)
-                </footer>
+                <FormContact/>
             </SidebarComponent>
         )
     }
